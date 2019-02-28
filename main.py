@@ -15,9 +15,8 @@ def main():
     slides = convertToSlides(photoList)
 
     # # sorted the slides according to their tag numbers create size classes
-    sizeClasses = makeSizeClasses(slides)
+    sizeClasses = makeSizeClasses(slides, 5)
     print(sizeClasses)
-    #
     #
     # slideShow = []
     # for sizeClass in sizeClasses:
