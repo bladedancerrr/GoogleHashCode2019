@@ -11,11 +11,7 @@ def readInput(file):
 		for j in range(int(line[1])):
 			photos[i-1][3].append(line[j+2])
 
-	returnList = []
-	returnList.append(N)
-	returnList.append(photos)
-	print(returnList)
-	return returnList
+	return photos
 	
 
 
