@@ -1,4 +1,4 @@
-import slide 
+from slide import Slide 
 
 def convertToSlides(photoList):
 	"""takes a list of photos and converts it into a list of slides"""
@@ -23,5 +23,15 @@ def convertToSlides(photoList):
 			s = Slide(vertical[i], vertical[i+1])
 			s.isUsed = True
 			slideShow.append(s)
+
+	else: 
+		vertical.pop(0)
+		for i in range(0, len(vertical), 2):
+			s = Slide(vertical[i], vertical[i+1])
+			s.isUsed = True
+			slideShow.append(s)
+
+
+
 
 	return slideShow
