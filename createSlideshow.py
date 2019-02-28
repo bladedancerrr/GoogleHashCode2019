@@ -1,4 +1,4 @@
-import Photo
+from photo import Photo
 
 def createSlideshow(photoList):
 
@@ -10,7 +10,7 @@ def createSlideshow(photoList):
 	secondVertPhoto = None
 	numVertPhotos = 0
 
-	for photoNum in totalPhotos:
+	for photoNum in range(totalPhotos):
 
 		currPhoto = photoList[photoNum]
 
@@ -30,12 +30,12 @@ def createSlideshow(photoList):
 			else: 
 
 				secondVertPhoto = currPhoto
+
 				slideShow.append((firstVertPhoto, secondVertPhoto))
 				firstVertPhoto.isUsed = True
 				secondVertPhoto.isUsed = True
 
-
-			slideShow.append(currPhoto)
-
 	return slideShow
 
+if __name__ == "__main__":
+	photo1 = Photo()
