@@ -3,7 +3,13 @@ from createSlideshow import createSlideshow
 from createOutput import createOutput
 from 
 
+
 def main():
+	photoList = getPhotoList('c')
+	slideshow = createSlideshow(photoList)
+	slideshow.sort(key=lambda x: x.tagNumber, reverse=True)
+	createOutput(slideshow)
+
 
 
 

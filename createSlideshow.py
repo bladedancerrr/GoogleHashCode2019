@@ -1,5 +1,7 @@
 from photo import Photo
 
+
+
 def createSlideshow(photoList):
 
 	slideShow = []

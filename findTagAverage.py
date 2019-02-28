@@ -3,8 +3,8 @@ def findTagAverage(slides):
 	sumTagNumbers = 0
 	for slide in slides: 
 		sumTagNumbers += slide.tagNumber
-	average = int(sumTagNumbers/numSlides)
-	return (average/3)*2
+	average = sumTagNumbers/numSlides
+	return int((average/3)*2)
 
 
 
