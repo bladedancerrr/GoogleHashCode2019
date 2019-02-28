@@ -14,7 +14,7 @@ def convertToSlides(photoList):
 			vertical.append(photo)
 
 	for hPhoto in horizontal:
-		s = Slide(horizontal)
+		s = Slide(hPhoto)
 		s.isUsed = True
 		slideShow.append(s)
 
