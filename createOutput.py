@@ -1,4 +1,4 @@
-from photo import photo
+from photo import Photo
 
 def createOutput(slideList):
     outputFile = open("Output.txt", "w")
@@ -6,9 +6,9 @@ def createOutput(slideList):
     for slide in slideList:
         photo1 = slide[0]
         photo2 = slide[1]
-        outputFile.write("{}".format(photo1))
+        outputFile.write("{}".format(photo1.ID))
         if photo2:
-            outputFile.write("{}".format(photo1))
+            outputFile.write(" {}".format(photo2.ID))
         outputFile.write("\n")
     outputFile.close()
 
