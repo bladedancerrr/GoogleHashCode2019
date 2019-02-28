@@ -2,6 +2,7 @@ from init import getPhotoList
 from createSlideshow import createSlideshow
 from createOutput import createOutput
 from convertToSlides import convertToSlides
+from makeSizeClasses import makeSizeClasses
 
 
 def main():
@@ -12,10 +13,10 @@ def main():
 
     # create slides
     slides = convertToSlides(photoList)
-    print(slides)
 
     # # sorted the slides according to their tag numbers create size classes
-    # sizeClasses = makeSizeClass(slides)
+    sizeClasses = makeSizeClasses(slides)
+    print(sizeClasses)
     #
     #
     # slideShow = []
