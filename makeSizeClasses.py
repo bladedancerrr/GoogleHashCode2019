@@ -2,7 +2,9 @@ import math
 from operator import itemgetter
 from slide import Slide
 
-def makeSizeClasses(slideSizeList, nClasses):
+def makeSizeClasses(slides, nClasses):
+
+	slideSizeList = makeSlideSizeList(slides)
 
 	sortedSlideList = slideSizeList.sort(key = itemgetter(1))
 
