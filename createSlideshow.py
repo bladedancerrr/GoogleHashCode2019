@@ -1,43 +1,26 @@
 from photo import Photo
+from slide import Slide
+from init import getPhotoList
 
-
-
-def createSlideshow(photoList):
-
+def getSlideshow(photoList):
+	"""
+	:param photoList: a list of Photos
+	:rtype slideShow: a list of Slides
+	"""
 	slideShow = []
-
-	totalPhotos = len(photoList)
-
-	firstVertPhoto = None
-	secondVertPhoto = None
-	numVertPhotos = 0
-
-	for photoNum in range(totalPhotos):
-
-		currPhoto = photoList[photoNum]
-
-		if currPhoto.isHorizontal:
-
-			slideShow.append((currPhoto, None))
-			currPhoto.isUsed = True
-
+	verticalPhotos = []
+	for photo in photoList:
+		if photo.isHorizontal:
+			slideShow.append(Slide(photo))
 		else:
-
-			numVertPhotos += 1
-
-			if numVertPhotos % 2:
-
-				firstVertPhoto = currPhoto
-
-			else: 
-
-				secondVertPhoto = currPhoto
-
-				slideShow.append((firstVertPhoto, secondVertPhoto))
-				firstVertPhoto.isUsed = True
-				secondVertPhoto.isUsed = True
-
+			if len(verticalPhotos) == 2:
+				slideShow.append(Slide(verticalPhotos[0], secondPhoto=verticalPhotos[1]))
+				verticalPhotos = []
+			else:
+				verticalPhotos.append(photo)
 	return slideShow
 
+
 if __name__ == "__main__":
-	photo1 = Photo()
+	photoList = getPhotoList('a')
+	print(getSlideshow(photoList))
