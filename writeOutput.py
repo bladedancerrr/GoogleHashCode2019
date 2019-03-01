@@ -1,6 +1,6 @@
 from photo import Photo
 
-def createOutput(slideList):
+def writeOutput(slideList):
     outputFile = open("Output.txt", "w")
     outputFile.write("{}\n".format(len(slideList)))
     for slide in slideList:
@@ -18,4 +18,4 @@ if __name__ == "__main__":
     for dataItem in data:
         photoList.append(Photo(dataItem))
     slideList = [(photoList[0], photoList[1]), (photoList[2], None), (photoList[3], None)]
-    createOutput(slideList)
+    writeOutput(slideList)

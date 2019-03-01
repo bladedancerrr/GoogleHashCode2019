@@ -1,22 +1,22 @@
-from init import getPhotoList
-from createSlideshow import createSlideshow
-from createOutput import createOutput
-from convertToSlides import convertToSlides
+from init import getPhotoList, getSlideShow
+from writeOutput import writeOutput
 from makeSizeClasses import makeSizeClasses
+from matrix import getMatrix
 
 
 def main():
 
     # read input
     # Create photos
-    photoList = getPhotoList('c')
-
-    # create slides
-    slides = convertToSlides(photoList)
-
+    photoList = getPhotoList('d')
+    print("Created list of photos")
+    slideShow = getSlideShow(photoList)
+    print("Created list of slides")
+    matrix = getMatrix(slideShow)
+    print(matrix)
     # # sorted the slides according to their tag numbers create size classes
-    sizeClasses = makeSizeClasses(slides, 5)
-    print(sizeClasses)
+    # sizeClasses = makeSizeClasses(slides, 5)
+    # print(sizeClasses)
     #
     # slideShow = []
     # for sizeClass in sizeClasses:
