@@ -50,4 +50,4 @@ if __name__ == '__main__':
 	slideShow = getSlideShow(photoList)
 	matrix = Matrix(slideShow)
 	pair = matrix.nextMostSimilarPair()
-	matrix.consolidate(pair)
+	matrix.consolidate(pair )
