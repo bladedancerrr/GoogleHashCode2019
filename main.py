@@ -1,19 +1,22 @@
 from init import getPhotoList, getSlideShow
 from writeOutput import writeOutput
 from makeSizeClasses import makeSizeClasses
-from matrix import getMatrix
+from matrix import Matrix
+from scipy.cluster.hierarchy import linkage, dendrogram
+import matplotlib.pyplot as plt
 
 
 def main():
 
     # read input
     # Create photos
-    photoList = getPhotoList('d')
+    photoList = getPhotoList('c')
     print("Created list of photos")
     slideShow = getSlideShow(photoList)
     print("Created list of slides")
-    matrix = getMatrix(slideShow)
-    print(matrix)
+    matrix = Matrix(slideShow)
+    print(matrix.matrix)
+
     # # sorted the slides according to their tag numbers create size classes
     # sizeClasses = makeSizeClasses(slides, 5)
     # print(sizeClasses)
