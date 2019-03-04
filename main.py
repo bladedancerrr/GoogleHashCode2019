@@ -4,18 +4,30 @@ from makeSizeClasses import makeSizeClasses
 from matrix import Matrix
 from scipy.cluster.hierarchy import linkage, dendrogram
 import matplotlib.pyplot as plt
+import sys
+import timeit
 
 
 def main():
 
     # read input
     # Create photos
-    photoList = getPhotoList('c')
-    print("Created list of photos")
-    slideShow = getSlideShow(photoList)
-    print("Created list of slides")
-    matrix = Matrix(slideShow)
-    print(matrix.matrix)
+    letterList = ['a', 'b', 'c', 'd', 'e']
+    for letter in letterList:
+        print(f"\nProcessing file {letter}")
+        start = timeit.default_timer()
+        photoList = getPhotoList(letter)
+        slideShow = getSlideShow(photoList)
+        matrix = Matrix(slideShow)
+        while not matrix.allPairsUsed():
+            pair = matrix.nextMostSimilarPair()
+            matrix.appendToOrderedSlideShow(pair)
+            matrix.consolidate(pair)
+            sys.stdout.write(f'\r{matrix.percentage()} % completed')
+            sys.stdout.flush()
+        stop = timeit.default_timer()
+        print(f"\nElapsed time (in seconds): ", stop-start)
+        writeOutput(matrix.orderedSlideShow, letter)
 
     # # sorted the slides according to their tag numbers create size classes
     # sizeClasses = makeSizeClasses(slides, 5)
