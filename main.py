@@ -12,7 +12,7 @@ def main():
 
     # read input
     # Create photos
-    letterList = ['a', 'b', 'c', 'd', 'e']
+    letterList = ['c']
     for letter in letterList:
         print(f"\nProcessing file {letter}")
         start = timeit.default_timer()
